@@ -1,0 +1,52 @@
+name: Build iOS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    # Checkout the project
+    - uses: actions/checkout@v2
+
+    # Install Flutter
+    - name: Install Flutter
+      run: |
+        git clone https://github.com/flutter/flutter.git -b stable --depth 1
+        export PATH="$PATH:`pwd`/flutter/bin"
+        flutter doctor
+    
+    # Regenerate iOS directory and Podfile if missing
+    - name: Regenerate iOS and Podfile
+      run: |
+        export PATH="$PATH:`pwd`/flutter/bin"
+        flutter clean
+        flutter pub get
+        flutter create .
+
+    # Clean and install CocoaPods dependencies
+    - name: Clean and install pods
+      run: |
+        cd ios
+        rm -rf Pods Podfile.lock
+        pod install
+
+    # Install Flutter dependencies
+    - name: Install dependencies
+      run: |
+        export PATH="$PATH:`pwd`/flutter/bin"
+        flutter pub get
+
+    # Build the iOS app
+    - name: Build iOS
+      run: |
+        export PATH="$PATH:`pwd`/flutter/bin"
+        flutter clean
+        flutter build ios --no-codesign
+
+
+

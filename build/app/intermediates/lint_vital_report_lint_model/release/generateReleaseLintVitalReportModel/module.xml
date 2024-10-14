@@ -1,0 +1,25 @@
+<lint-module
+    format="1"
+    dir="/content/my_drive/MyDrive/NaijaTrans/android/app"
+    name=":app"
+    type="APP"
+    maven="android:app:unspecified"
+    agpVersion="8.5.0"
+    buildFolder="/content/my_drive/MyDrive/NaijaTrans/build/app"
+    bootClassPath="/content/drive/MyDrive/Android/Sdk/platforms/android-34/android.jar:/content/drive/MyDrive/Android/Sdk/build-tools/34.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="21"
+    compileTarget="android-34">
+  <lintOptions
+      disable="InvalidPackage"
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true">
+    <severities>
+      <severity
+        id="InvalidPackage"
+        severity="IGNORE" />
+    </severities>
+  </lintOptions>
+  <variant name="release"/>
+</lint-module>
