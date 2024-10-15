@@ -27,6 +27,7 @@ jobs:
         flutter clean
         flutter pub get
         flutter create .
+        flutter precache --ios
         
     # Set up Ruby environment and install CocoaPods
     - name: Install Ruby and CocoaPods
