@@ -1,4 +1,0 @@
-#Fri Oct 11 04:22:55 UTC 2024
-base.0=/content/my_drive/MyDrive/NaijaTrans/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
